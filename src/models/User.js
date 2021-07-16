@@ -15,14 +15,20 @@ class User extends Model {
               name: {
                 type: DataTypes.STRING,
                 validate: {
-                    len: [2, 50],
+                    len: {
+                        args: [2, 50],
+                        msg: 'Invalid name',
+                    }
                 }
               },
     
               email: {
                 type: DataTypes.STRING,
                 validate: {
-                    isEmail: true,
+                    isEmail: {
+                        args: true,
+                        msg: 'Invalid Email'
+                    }
                 }
               },
 
