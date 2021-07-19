@@ -1,10 +1,10 @@
-const CreateUSerService = require('./../services/CreateUSerService');
+const CreateUserService = require('../services/CreateUserService');
 
-class CreateUSerController{
+class CreateUserController{
     async handle(request, response) {
-        const user = await CreateUSerService.execute(request.body);
+        const user = await CreateUserService.execute(request.body);
         return response.json(user);
     }
 }
 
-module.exports = new CreateUSerController();
+module.exports = new CreateUserController();

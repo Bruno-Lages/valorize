@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-class CreateUSerService{
+class CreateUserService{
     async execute({name, email, admin}) {
         if (!name) throw new Error('Name is required');
         if (name?.length < 2 || name?.length > 50) throw new Error('The name must have at least 2 characters and a maximum of 50 characters');
@@ -13,4 +13,4 @@ class CreateUSerService{
     }
 };
 
-module.exports = new CreateUSerService();
+module.exports = new CreateUserService();
