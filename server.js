@@ -13,11 +13,14 @@ app.use(Router);
 
 app.use((err, request, response, next) => {
     if (err instanceof Error && !(err instanceof ValidationError) ) {
-        return response.status(400).json({
-            error: err.message,
+        const errorMessage = err.message.slice(0, -4);
+        const errorStatus = err.message.slice(-3)
+        console.log(errorStatus);
+        return response.status(errorStatus).json({
+            error: errorMessage,
         });
     } else if (err instanceof ValidationError) {
-        return response.status(401).json({
+        return response.status(400).json({
             error: err.errors.map((error) => error.message),
         })
     }
