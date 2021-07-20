@@ -11,6 +11,10 @@ class User extends Model {
                     return v4();
                 },
               },
+
+            password: {
+                type: DataTypes.STRING,
+            },
     
               name: {
                 type: DataTypes.STRING,
