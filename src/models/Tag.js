@@ -27,4 +27,8 @@ module.exports = class Tag extends Model {
             tableName: 'tags',
         })
     }
+
+    static asssociate(models) {
+        this.hasMany(models.Compliment, { foreignKey: 'tag' })
+    }
 }

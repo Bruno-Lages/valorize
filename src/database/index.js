@@ -5,8 +5,9 @@ const sequelizeConection = new Sequelize(dbconfig);
 
 const User = require('./../models/User');
 const Tag = require('./../models/Tag');
+const Compliment = require('./../models/Compliment');
 
-const Models = [User, Tag];
+const models = [User, Tag, Compliment];
 
-Models.forEach((model) => model.init(sequelizeConection));
-
+models.forEach((model) => model.init(sequelizeConection));
+models.forEach((model) => model.associate && model.associate(sequelizeConection.models));

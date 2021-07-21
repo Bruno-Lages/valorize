@@ -38,12 +38,18 @@ class User extends Model {
 
               admin: {
                   type: DataTypes.BOOLEAN,
+                  defaultValue: false
               },
         },
         {
             sequelize: dbconnection,
             tableName: 'users',
         })
+    }
+
+    static associate(models) {
+        this.hasMany(models.Compliment, { foreignKey: 'user_sender'});
+        this.hasMany(models.Compliment, { foreignKey: 'user_receiver'});
     }
 }
 
