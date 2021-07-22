@@ -3,7 +3,8 @@ const User = require('./../models/User');
 const Tag = require('./../models/Tag');
 
 class CreateComplimentService {
-    async execute({userSender, userReceiver, tag, message }) {
+    async execute(userSender, { userReceiver, tag, message }) {
+
         if (userSender === userReceiver) return new Error (['You can\'t send a compliment to yourself', 400]);
         if (!userReceiver || !tag) return new Error (['Missing information']);
 

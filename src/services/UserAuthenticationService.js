@@ -16,7 +16,7 @@ class UserAuthenticationService {
             { email }, 
             process.env.JWT_SECRET,
             {
-                subject: 'user.id',
+                subject: user.id,
                 expiresIn: '1 day',
             } 
         );
